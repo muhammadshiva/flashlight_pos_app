@@ -4,6 +4,7 @@ import 'package:flashlight_pos_app/core/components/custom_text_field.dart';
 import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
+import 'package:flashlight_pos_app/presentation/customer_type/pages/customer_type_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -67,12 +68,12 @@ class _LoginPageState extends State<LoginPage> {
           const SpaceHeight(40.0),
           Button.filled(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => const CustomerTypePage(),
-              //   ),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CustomerTypePage(),
+                ),
+              );
             },
             label: 'Masuk',
           ),
