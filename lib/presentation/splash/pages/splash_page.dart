@@ -1,4 +1,6 @@
+import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
+import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -25,12 +27,12 @@ class _SplashPageState extends State<SplashPage>
 
     // After the fade-in animation, navigate to the main app
     Future.delayed(const Duration(seconds: 3), () {
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => const LoginPage(),
-      //   ),
-      // );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LoginPage(),
+        ),
+      );
     });
   }
 
@@ -41,12 +43,12 @@ class _SplashPageState extends State<SplashPage>
         color: AppColors.primary,
       ),
       child: Center(
-          // child: AnimatedOpacity(
-          //   opacity: _opacity,
-          //   duration: const Duration(seconds: 2),
-          //   child: Image.asset(Assets.images.logoFlashlight.path, height: 109),
-          // ),
-          ),
+        child: AnimatedOpacity(
+          opacity: _opacity,
+          duration: const Duration(seconds: 2),
+          child: Image.asset(Assets.images.logoFlashlight.path, height: 109),
+        ),
+      ),
     );
   }
 }
