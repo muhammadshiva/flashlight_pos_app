@@ -7,4 +7,5 @@ class AppColors {
   static const darkGray = Color(0xff5F5F5F);
   static const mediumGray = Color(0xffCBCBCB);
   static const darkSlate = Color(0xff2E3338);
+  static const Color white = Color(0xffFFFFFF);
 }
