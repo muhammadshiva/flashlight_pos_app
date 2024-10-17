@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'core/constant/styles/colors.dart';
-import 'core/constant/styles/fonts.dart';
 
 void main() {
   runApp(const MainApp());
