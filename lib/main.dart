@@ -1,3 +1,4 @@
+import 'package:flashlight_pos_app/presentation/splash/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,11 +41,7 @@ class MainApp extends StatelessWidget {
           ),
         ),
       ),
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: const SplashPage(),
     );
   }
 }
