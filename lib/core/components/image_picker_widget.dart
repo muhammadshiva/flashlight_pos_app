@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'buttons.dart';
-import 'spaces.dart';
 
 class ImagePickerWidget extends StatefulWidget {
   final String label;
@@ -50,12 +50,12 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
         if (widget.showLabel) ...[
           Text(
             widget.label,
-            style: const TextStyle(
-              fontSize: 14,
+            style: TextStyle(
+              fontSize: 12.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SpaceHeight(12.0),
+          12.verticalSpace,
         ],
         Container(
           padding: const EdgeInsets.all(6.0),

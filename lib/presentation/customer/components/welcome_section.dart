@@ -1,10 +1,10 @@
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
-import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/models/customer_type_model.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/widgets/sosmed_card.dart';
+import 'package:flashlight_pos_app/presentation/customer/models/customer_type_model.dart';
+import 'package:flashlight_pos_app/presentation/customer/widgets/sosmed_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeSection extends StatelessWidget {
@@ -24,12 +24,12 @@ class WelcomeSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(Assets.images.logoFlashlight.path, height: 109),
-          const SpaceHeight(60.0),
+          50.verticalSpace,
           RichText(
             text: TextSpan(
               style: GoogleFonts.poppins().copyWith(
-                fontSize: 96,
-                height: 0.9,
+                fontSize: 70.sp,
+                height: 0.9.w,
               ),
               children: [
                 const TextSpan(text: 'We wash '),
@@ -44,22 +44,22 @@ class WelcomeSection extends StatelessWidget {
               ],
             ),
           ),
-          const SpaceHeight(30.0),
+          30.verticalSpace,
           Text(
             'we provide high-quality of services',
             style: GoogleFonts.poppins().copyWith(
               color: AppColors.lightWhite,
               fontWeight: regular,
-              fontSize: 34,
-              height: 1.2,
+              fontSize: 20.sp,
+              height: 1.2.w,
               decoration: TextDecoration.none,
             ),
           ),
-          const SpaceHeight(35.0),
+          25.verticalSpace,
           RichText(
             text: TextSpan(
               style: GoogleFonts.poppins().copyWith(
-                fontSize: 14,
+                fontSize: 12.sp,
                 fontWeight: light,
               ),
               children: [
@@ -82,7 +82,7 @@ class WelcomeSection extends StatelessWidget {
           const Spacer(),
           Container(
             width: double.infinity,
-            height: 30,
+            height: 30.w,
             decoration: BoxDecoration(
               color: AppColors.darkGray,
               borderRadius: BorderRadius.circular(8),

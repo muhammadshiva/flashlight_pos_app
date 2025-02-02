@@ -1,14 +1,15 @@
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomerTypeCard extends StatelessWidget {
   final String title;
   final IconData icon;
-  final bool isSelected; // To check if this card is selected
-  final VoidCallback onTap; // Callback to notify parent when tapped
-
-  const CustomerTypeCard({super.key, 
+  final bool isSelected;
+  final VoidCallback onTap;
+  const CustomerTypeCard({
+    super.key,
     required this.title,
     required this.icon,
     required this.isSelected,
@@ -18,7 +19,7 @@ class CustomerTypeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap, // Call the parent's onTap method to manage the state
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         height: 180,
@@ -27,11 +28,9 @@ class CustomerTypeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: isSelected
               ? AppColors.accentOrange.withOpacity(0.3)
-              : Colors.white, // Change color if selected
+              : Colors.white,
           border: Border.all(
-            color: isSelected
-                ? AppColors.accentOrange
-                : AppColors.lightGray2, // Change border color if selected
+            color: isSelected ? AppColors.accentOrange : AppColors.lightGray2,
           ),
         ),
         child: Column(
@@ -42,7 +41,7 @@ class CustomerTypeCard extends StatelessWidget {
               style: GoogleFonts.poppins().copyWith(
                 color: AppColors.darkSlate,
                 fontWeight: FontWeight.w600,
-                fontSize: 14,
+                fontSize: 12.sp,
               ),
             ),
           ],

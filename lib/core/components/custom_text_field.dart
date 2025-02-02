@@ -1,7 +1,6 @@
+import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'spaces.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -36,12 +35,12 @@ class CustomTextField extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w700,
               color: color ?? Colors.black,
             ),
           ),
-          const SpaceHeight(12.0),
+          12.verticalSpace,
         ],
         TextFormField(
           controller: controller,
@@ -49,8 +48,8 @@ class CustomTextField extends StatelessWidget {
           obscureText: obscureText,
           keyboardType: keyboardType,
           style: textStyle ??
-              GoogleFonts.barlow(
-                fontSize: 14,
+              AppTextStyle.barlow.copyWith(
+                fontSize: 12.sp,
                 color: color ?? Colors.black,
               ),
           decoration: InputDecoration(
@@ -65,11 +64,11 @@ class CustomTextField extends StatelessWidget {
             ),
             hintText: label,
             hintStyle: textStyle ??
-                GoogleFonts.barlow(
+                AppTextStyle.barlow.copyWith(
                   color: color ?? Colors.grey,
                 ),
             labelStyle: textStyle ??
-                GoogleFonts.barlow(
+                AppTextStyle.barlow.copyWith(
                   color: color ?? Colors.grey,
                 ),
           ),

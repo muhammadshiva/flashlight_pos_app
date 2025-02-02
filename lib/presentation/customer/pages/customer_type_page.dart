@@ -1,5 +1,5 @@
-import 'package:flashlight_pos_app/presentation/customer_type/components/customer_type_section.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/components/welcome_section.dart';
+import 'package:flashlight_pos_app/presentation/customer/components/customer_type_section.dart';
+import 'package:flashlight_pos_app/presentation/customer/components/welcome_section.dart';
 import 'package:flutter/material.dart';
 
 class CustomerTypePage extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
-import 'package:flashlight_pos_app/core/extensions/build_context_ext.dart';
+import 'package:flashlight_pos_app/core/utils/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
 
 class TabCustom extends StatelessWidget {

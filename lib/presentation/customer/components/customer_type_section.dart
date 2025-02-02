@@ -3,10 +3,10 @@ import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/routes/route_constants.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/data/domain/customer_type_argument.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/models/customer_type_model.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/widgets/customer_type_card.dart';
+import 'package:flashlight_pos_app/presentation/customer/models/customer_type_model.dart';
+import 'package:flashlight_pos_app/presentation/customer/widgets/customer_type_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomerTypeSection extends StatefulWidget {
@@ -36,11 +36,11 @@ class _CustomerTypeSectionState extends State<CustomerTypeSection> {
             style: GoogleFonts.poppins().copyWith(
               color: AppColors.darkSlate,
               fontWeight: semiBold,
-              fontSize: 18,
+              fontSize: 16.sp,
               decoration: TextDecoration.none,
             ),
           ),
-          const SpaceHeight(25.0),
+          25.verticalSpace,
 
           //* Customer Type Card
           Row(
@@ -64,21 +64,21 @@ class _CustomerTypeSectionState extends State<CustomerTypeSection> {
               ..removeLast(),
           ),
 
-          const SpaceHeight(30.0),
+          30.verticalSpace,
           //* Start Order Button
 
           Button.filled(
             onPressed: () {
               Navigator.pushNamed(
                 context,
-                RouteConstants.dashboard,
-                arguments: CustomerTypeArgument(
-                  customerType: selectedTitle,
-                ),
+                RouteConstants.customerForm,
+                // arguments: CustomerTypeArgument(
+                //   customerType: selectedTitle,
+                // ),
               );
             },
             label: 'Start Order',
-            width: 370,
+            width: 370.w,
           ),
 
           const Spacer(),

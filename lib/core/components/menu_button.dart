@@ -1,7 +1,7 @@
-import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
-import 'package:flashlight_pos_app/core/extensions/build_context_ext.dart';
+import 'package:flashlight_pos_app/core/utils/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MenuButton extends StatelessWidget {
@@ -56,7 +56,7 @@ class MenuButton extends StatelessWidget {
                         BlendMode.srcIn,
                       ),
                     ),
-              const SpaceHeight(10.0),
+              10.verticalSpace,
               Text(
                 label,
                 style: TextStyle(

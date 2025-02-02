@@ -2,11 +2,10 @@ import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
 import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/data/domain/customer_type_argument.dart';
+import 'package:flashlight_pos_app/presentation/customer/data/domain/customer_type_argument.dart';
 import 'package:flashlight_pos_app/presentation/home/bloc/logout_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DashboardPage extends StatelessWidget {
   final CustomerTypeArgument customerTypeArgument;
@@ -19,7 +18,7 @@ class DashboardPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Flashlight Cleanstar',
-          style: GoogleFonts.barlow().copyWith(
+          style: AppTextStyle.barlow.copyWith(
             color: AppColors.white,
             fontWeight: bold,
             fontSize: 16,

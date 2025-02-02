@@ -1,15 +1,14 @@
-
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/components/buttons.dart';
 import 'package:flashlight_pos_app/core/components/custom_text_field.dart';
-import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flashlight_pos_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/pages/customer_type_page.dart';
+import 'package:flashlight_pos_app/presentation/customer/pages/customer_type_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -36,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         children: [
-          const SpaceHeight(80.0),
+          80.verticalSpace,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 130),
             child: Image.asset(
@@ -45,31 +44,31 @@ class _LoginPageState extends State<LoginPage> {
               height: 100,
             ),
           ),
-          const SpaceHeight(40.0),
+          40.verticalSpace,
           Center(
             child: Text(
               "Masuk untuk kasir",
-              style: barlow.copyWith(
+              style: AppTextStyle.barlow.copyWith(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
                 color: AppColors.lightWhite,
               ),
             ),
           ),
-          const SpaceHeight(20.0),
+          20.verticalSpace,
           CustomTextField(
             controller: usernameController,
             label: 'Username',
             color: AppColors.lightWhite,
           ),
-          const SpaceHeight(20.0),
+          20.verticalSpace,
           CustomTextField(
             controller: passwordController,
             label: 'Password',
             obscureText: true,
             color: AppColors.lightWhite,
           ),
-          const SpaceHeight(40.0),
+          40.verticalSpace,
           BlocListener<LoginBloc, LoginState>(
             listener: (context, state) {
               state.maybeWhen(

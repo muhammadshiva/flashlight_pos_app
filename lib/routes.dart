@@ -1,6 +1,7 @@
 import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/data/domain/customer_type_argument.dart';
-import 'package:flashlight_pos_app/presentation/customer_type/pages/customer_type_page.dart';
+import 'package:flashlight_pos_app/presentation/customer/data/domain/customer_type_argument.dart';
+import 'package:flashlight_pos_app/presentation/customer/pages/customer_form_page.dart';
+import 'package:flashlight_pos_app/presentation/customer/pages/customer_type_page.dart';
 import 'package:flashlight_pos_app/presentation/home/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,10 @@ class AppRouter {
       case RouteConstants.customerType:
         return MaterialPageRoute(
           builder: (_) => const CustomerTypePage(),
+        );
+      case RouteConstants.customerForm:
+        return MaterialPageRoute(
+          builder: (_) => const CustomerFormPage(),
         );
       case RouteConstants.dashboard:
         return MaterialPageRoute(

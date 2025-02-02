@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'spaces.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDropdown extends StatelessWidget {
   final String? value;
@@ -23,12 +22,12 @@ class CustomDropdown extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(
-            fontSize: 14,
+          style: TextStyle(
+            fontSize: 12.sp,
             fontWeight: FontWeight.w700,
           ),
         ),
-        const SpaceHeight(12.0),
+        12.verticalSpace,
         DropdownButtonFormField<String>(
           value: value,
           onChanged: onChanged,

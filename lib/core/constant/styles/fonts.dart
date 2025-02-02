@@ -2,15 +2,17 @@ import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-TextStyle poppins = GoogleFonts.poppins(
-  color: AppColors.lightWhite,
-  decoration: TextDecoration.none,
-);
+class AppTextStyle {
+  static TextStyle poppins = GoogleFonts.poppins(
+    color: AppColors.lightWhite,
+    decoration: TextDecoration.none,
+  );
 
-TextStyle barlow = GoogleFonts.barlow(
-  color: AppColors.lightWhite,
-  decoration: TextDecoration.none,
-);
+  static TextStyle barlow = GoogleFonts.barlow(
+    color: AppColors.lightWhite,
+    decoration: TextDecoration.none,
+  );
+}
 
 const FontWeight light = FontWeight.w300; // Light
 const FontWeight regular = FontWeight.w400; // Regular

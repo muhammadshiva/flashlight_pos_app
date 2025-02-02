@@ -1,6 +1,6 @@
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
+import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 enum ButtonStyle { filled, outlined }
 
@@ -72,7 +72,7 @@ class Button extends StatelessWidget {
                   Text(
                     label,
                     style: textStyle ??
-                        GoogleFonts.barlow(
+                        AppTextStyle.barlow.copyWith(
                           color: textColor,
                           fontSize: fontSize,
                           fontWeight: FontWeight.w600,
@@ -98,7 +98,7 @@ class Button extends StatelessWidget {
                   Text(
                     label,
                     style: textStyle ??
-                        GoogleFonts.barlow(
+                        AppTextStyle.barlow.copyWith(
                           color: textColor,
                           fontSize: fontSize,
                           fontWeight: FontWeight.w600,
