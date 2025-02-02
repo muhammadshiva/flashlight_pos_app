@@ -1,3 +1,4 @@
+
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/components/buttons.dart';
 import 'package:flashlight_pos_app/core/components/custom_text_field.dart';
@@ -5,6 +6,7 @@ import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flashlight_pos_app/presentation/auth/bloc/login/login_bloc.dart';
+import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
 import 'package:flashlight_pos_app/presentation/customer_type/pages/customer_type_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -72,7 +74,9 @@ class _LoginPageState extends State<LoginPage> {
             listener: (context, state) {
               state.maybeWhen(
                 orElse: () {},
-                success: (authResponseModel) {
+                success: (authResponseModel) async {
+                  AuthLocalDatasource().saveAuthData(authResponseModel);
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

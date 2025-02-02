@@ -1,5 +1,4 @@
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
-import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,7 +8,7 @@ class CustomerTypeCard extends StatelessWidget {
   final bool isSelected; // To check if this card is selected
   final VoidCallback onTap; // Callback to notify parent when tapped
 
-  const CustomerTypeCard({
+  const CustomerTypeCard({super.key, 
     required this.title,
     required this.icon,
     required this.isSelected,

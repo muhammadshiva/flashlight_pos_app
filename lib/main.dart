@@ -1,6 +1,11 @@
 import 'package:flashlight_pos_app/presentation/auth/bloc/login/login_bloc.dart';
+import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_remote_datasource.dart';
+import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
+import 'package:flashlight_pos_app/presentation/customer_type/pages/customer_type_page.dart';
+import 'package:flashlight_pos_app/presentation/home/bloc/logout_bloc.dart';
 import 'package:flashlight_pos_app/presentation/splash/pages/splash_page.dart';
+import 'package:flashlight_pos_app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,8 +27,15 @@ class MainApp extends StatelessWidget {
       DeviceOrientation.landscapeLeft,
     ]);
 
-    return BlocProvider(
-      create: (context) => LoginBloc(AuthRemoteDatasouce()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginBloc(AuthRemoteDatasouce()),
+        ),
+        BlocProvider(
+          create: (context) => LogoutBloc(AuthRemoteDatasouce()),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flashlight Point of Sales App',
         theme: ThemeData(
@@ -45,7 +57,19 @@ class MainApp extends StatelessWidget {
             ),
           ),
         ),
-        home: const SplashPage(),
+        home: FutureBuilder<bool>(
+          future: AuthLocalDatasource().isAuth(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const SplashPage();
+            } else if (snapshot.hasData && snapshot.data == true) {
+              return const CustomerTypePage();
+            } else {
+              return const LoginPage();
+            }
+          },
+        ),
+        onGenerateRoute: AppRouter().onGenerateRoute,
       ),
     );
   }

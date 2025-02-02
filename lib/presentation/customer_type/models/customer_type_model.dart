@@ -20,7 +20,7 @@ class CustomerTypeModel {
   static List<Map<String, Object>> customerTypeList = [
     {
       'icon': Icons.person,
-      'title': 'Customer Baru',
+      'title': 'New Customer',
     },
     {
       'icon': Icons.group,

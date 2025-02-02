@@ -1,16 +1,14 @@
 import 'dart:convert';
 
 class AuthResponseModel {
-  final User? user;
+  final bool? success;
   final String? message;
-  final int? status;
-  final String? token;
+  final AuthData? data;
 
   AuthResponseModel({
-    this.user,
+    this.success,
     this.message,
-    this.status,
-    this.token,
+    this.data,
   });
 
   factory AuthResponseModel.fromRawJson(String str) =>
@@ -20,16 +18,39 @@ class AuthResponseModel {
 
   factory AuthResponseModel.fromJson(Map<String, dynamic> json) =>
       AuthResponseModel(
-        user: User.fromJson(json["user"]),
+        success: json["success"],
         message: json["message"],
-        status: json["status"],
+        data: json["data"] == null ? null : AuthData.fromJson(json["data"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "success": success,
+        "message": message,
+        "data": data?.toJson(),
+      };
+}
+
+class AuthData {
+  final User? user;
+  final String? token;
+
+  AuthData({
+    this.user,
+    this.token,
+  });
+
+  factory AuthData.fromRawJson(String str) =>
+      AuthData.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory AuthData.fromJson(Map<String, dynamic> json) => AuthData(
+        user: json["user"] == null ? null : User.fromJson(json["user"]),
         token: json["token"],
       );
 
   Map<String, dynamic> toJson() => {
         "user": user?.toJson(),
-        "message": message,
-        "status": status,
         "token": token,
       };
 }
@@ -37,23 +58,20 @@ class AuthResponseModel {
 class User {
   final int? id;
   final String? name;
+  final String? phone;
+  final String? roles;
   final String? email;
-  final String? phoneNumber;
-  final String? emailVerifiedAt;
-  final String? role;
-  final int? isMember;
-
+  final dynamic emailVerifiedAt;
   final String? createdAt;
   final String? updatedAt;
 
   User({
     this.id,
     this.name,
+    this.phone,
+    this.roles,
     this.email,
-    this.phoneNumber,
     this.emailVerifiedAt,
-    this.role,
-    this.isMember,
     this.createdAt,
     this.updatedAt,
   });
@@ -65,11 +83,10 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["id"],
         name: json["name"],
+        phone: json["phone"],
+        roles: json["roles"],
         email: json["email"],
-        phoneNumber: json["phone_number"],
         emailVerifiedAt: json["email_verified_at"],
-        role: json["role"],
-        isMember: json["is_member"],
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
       );
@@ -77,11 +94,10 @@ class User {
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
+        "phone": phone,
+        "roles": roles,
         "email": email,
-        "phone_number": phoneNumber,
         "email_verified_at": emailVerifiedAt,
-        "role": role,
-        "is_member": isMember,
         "created_at": createdAt,
         "updated_at": updatedAt,
       };

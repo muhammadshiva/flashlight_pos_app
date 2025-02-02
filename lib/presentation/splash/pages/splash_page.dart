@@ -1,6 +1,5 @@
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
-import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -18,21 +17,10 @@ class _SplashPageState extends State<SplashPage>
   void initState() {
     super.initState();
 
-    // Start the fade-in animation
     Future.delayed(const Duration(milliseconds: 500), () {
       setState(() {
         _opacity = 1.0;
       });
-    });
-
-    // After the fade-in animation, navigate to the main app
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const LoginPage(),
-        ),
-      );
     });
   }
 

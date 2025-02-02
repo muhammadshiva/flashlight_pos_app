@@ -4,4 +4,8 @@ class ApiAuthConstant {
   static String login() {
     return 'login';
   }
+
+  static String logout() {
+    return 'logout';
+  }
 }

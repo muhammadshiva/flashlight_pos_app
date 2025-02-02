@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
-import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'buttons.dart';
