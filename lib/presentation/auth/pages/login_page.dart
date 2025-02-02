@@ -184,14 +184,16 @@ class _LoginPageState extends State<LoginPage> {
                     orElse: () {
                       return Button.filled(
                         onPressed: () {
-                          context.read<LoginBloc>().add(
-                                LoginEvent.login(
-                                  email: usernameCtrl.text,
-                                  password: passwordCtrl.text,
-                                ),
-                              );
+                          if (formKey.currentState!.validate()) {
+                            context.read<LoginBloc>().add(
+                                  LoginEvent.login(
+                                    email: usernameCtrl.text,
+                                    password: passwordCtrl.text,
+                                  ),
+                                );
+                          }
                         },
-                        label: 'Masuk',
+                        label: 'Login',
                       );
                     },
                     loading: () {
