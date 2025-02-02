@@ -19,6 +19,7 @@ class Button extends StatelessWidget {
     this.disabled = false,
     this.fontSize = 16.0,
     this.textStyle,
+    this.borderColor = AppColors.accentOrange,
   });
 
   const Button.outlined({
@@ -35,12 +36,14 @@ class Button extends StatelessWidget {
     this.disabled = false,
     this.fontSize = 16.0,
     this.textStyle,
+    this.borderColor = AppColors.accentOrange,
   });
 
   final Function() onPressed;
   final String label;
   final ButtonStyle style;
   final Color color;
+  final Color? borderColor;
   final Color textColor;
   final double width;
   final double height;
@@ -85,7 +88,7 @@ class Button extends StatelessWidget {
               onPressed: disabled ? null : onPressed,
               style: OutlinedButton.styleFrom(
                 backgroundColor: color,
-                side: const BorderSide(color: Colors.grey),
+                side: BorderSide(color: borderColor ?? Colors.grey),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(borderRadius),
                 ),

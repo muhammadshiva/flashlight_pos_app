@@ -21,7 +21,6 @@ abstract class AppDecoration {
       fontWeight: bold,
       fontSize: 12.sp,
     ),
-    floatingLabelBehavior: FloatingLabelBehavior.never,
     border: OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.grey),
       borderRadius: BorderRadius.all(
