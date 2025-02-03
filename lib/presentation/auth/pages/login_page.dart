@@ -20,27 +20,27 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
-  late final FocusNode usernameNode;
+  late final FocusNode emailNode;
   late final FocusNode passwordNode;
-  late final TextEditingController usernameCtrl;
+  late final TextEditingController emailCtrl;
   late final TextEditingController passwordCtrl;
   bool isShowPassword = false;
   bool isPasswordFocus = false;
 
   @override
   void initState() {
-    usernameNode = FocusNode();
+    emailNode = FocusNode();
     passwordNode = FocusNode();
-    usernameCtrl = TextEditingController();
+    emailCtrl = TextEditingController();
     passwordCtrl = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
-    usernameNode.dispose();
+    emailNode.dispose();
     passwordNode.dispose();
-    usernameCtrl.dispose();
+    emailCtrl.dispose();
     passwordCtrl.dispose();
     super.dispose();
   }
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             20.verticalSpace,
             Text(
-              'Name',
+              'Email',
               style: AppTextStyle.poppins.copyWith(
                 color: AppColors.lightWhite,
                 fontSize: 12.sp,
@@ -84,15 +84,15 @@ class _LoginPageState extends State<LoginPage> {
             ),
             12.verticalSpace,
             TextFormField(
-              focusNode: usernameNode,
-              controller: usernameCtrl,
+              focusNode: emailNode,
+              controller: emailCtrl,
               decoration: AppDecoration.inputDecoration.copyWith(
-                hintText: 'Input Name',
+                hintText: 'Input email',
               ),
               style: AppTextStyle.poppins.copyWith(
                 color: AppColors.white,
               ),
-              validator: FormValidator.validateName,
+              validator: FormValidator.validateEmail,
             ),
             20.verticalSpace,
             Text(
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwordCtrl,
                 obscureText: isShowPassword ? false : true,
                 decoration: AppDecoration.inputDecoration.copyWith(
-                  hintText: 'Input Password',
+                  hintText: 'Input password',
                   suffixIcon: Transform.scale(
                     scale: ScreenUtil().setSp(1),
                     child: GestureDetector(
@@ -187,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                           if (formKey.currentState!.validate()) {
                             context.read<LoginBloc>().add(
                                   LoginEvent.login(
-                                    email: usernameCtrl.text,
+                                    email: emailCtrl.text,
                                     password: passwordCtrl.text,
                                   ),
                                 );

@@ -33,7 +33,6 @@ class CustomerVehicleForm extends StatelessWidget {
           style: AppTextStyle.poppins.copyWith(
             color: AppColors.primary,
             fontSize: 12.sp,
-            // fontWeight: bold,
           ),
         ),
         12.verticalSpace,
@@ -64,15 +63,14 @@ class CustomerVehicleForm extends StatelessWidget {
               ),
             );
           }).toList(),
-          onChanged: (value) {},
+          onChanged: engineCapacity,
         ),
-        12.verticalSpace,
+        16.verticalSpace,
         Text(
           'Brand',
           style: AppTextStyle.poppins.copyWith(
             color: AppColors.primary,
             fontSize: 12.sp,
-            // fontWeight: bold,
           ),
         ),
         12.verticalSpace,
@@ -103,15 +101,14 @@ class CustomerVehicleForm extends StatelessWidget {
               ),
             );
           }).toList(),
-          onChanged: (value) {},
+          onChanged: brand,
         ),
-        12.verticalSpace,
+        16.verticalSpace,
         Text(
           'Model',
           style: AppTextStyle.poppins.copyWith(
             color: AppColors.primary,
             fontSize: 12.sp,
-            // fontWeight: bold,
           ),
         ),
         12.verticalSpace,
@@ -142,15 +139,14 @@ class CustomerVehicleForm extends StatelessWidget {
               ),
             );
           }).toList(),
-          onChanged: (value) {},
+          onChanged: model,
         ),
-        12.verticalSpace,
+        16.verticalSpace,
         Text(
           'License plate',
           style: AppTextStyle.poppins.copyWith(
             color: AppColors.primary,
             fontSize: 12.sp,
-            // fontWeight: bold,
           ),
         ),
         12.verticalSpace,
@@ -160,8 +156,7 @@ class CustomerVehicleForm extends StatelessWidget {
           decoration: AppDecoration.inputDecoration.copyWith(
             hintText: 'Input license plate. Ex: N 1234 ZZZ',
           ),
-          validator: FormValidator.validateName,
-          // validator: FormValidator.validateName,
+          validator: FormValidator.validateLicensePlate,
         ),
       ],
     );

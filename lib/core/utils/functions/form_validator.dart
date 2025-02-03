@@ -22,6 +22,17 @@ class FormValidator {
     return null;
   }
 
+  static String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Email cannot be blank";
+    }
+    if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+        .hasMatch(value)) {
+      return "Enter a valid email address";
+    }
+    return null;
+  }
+
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return "Password cannot be blank";
@@ -38,6 +49,16 @@ class FormValidator {
     }
     if (value != password) {
       return "Password confirmation not match with password";
+    }
+    return null;
+  }
+
+  static String? validateLicensePlate(String? value) {
+    if (value == null || value.isEmpty) {
+      return "License plate cannot be blank";
+    }
+    if (!RegExp(r"^[a-zA-Z0-9\s]+$").hasMatch(value)) {
+      return "License plate must contain only letters, numbers, and spaces";
     }
     return null;
   }

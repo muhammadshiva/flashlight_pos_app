@@ -24,10 +24,7 @@ class AppRouter {
         );
       case RouteConstants.dashboard:
         return MaterialPageRoute(
-          builder: (_) => DashboardPage(
-            customerTypeArgument:
-                routeSettings.arguments as CustomerTypeArgument,
-          ),
+          builder: (_) => const DashboardPage(),
         );
       default:
         return MaterialPageRoute(
