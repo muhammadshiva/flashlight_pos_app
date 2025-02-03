@@ -1,5 +1,4 @@
 import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
-import 'package:flashlight_pos_app/presentation/customer/data/domain/customer_type_argument.dart';
 import 'package:flashlight_pos_app/presentation/customer/pages/customer_form_page.dart';
 import 'package:flashlight_pos_app/presentation/customer/pages/customer_type_page.dart';
 import 'package:flashlight_pos_app/presentation/home/pages/dashboard_page.dart';

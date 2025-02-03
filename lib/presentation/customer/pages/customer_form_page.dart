@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flashlight_pos_app/core/components/buttons.dart';
 import 'package:flashlight_pos_app/core/constant/routes/route_constants.dart';
@@ -8,7 +6,6 @@ import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flashlight_pos_app/presentation/customer/bloc/customer_bloc.dart';
 import 'package:flashlight_pos_app/presentation/customer/components/forms/customer_data_form.dart';
 import 'package:flashlight_pos_app/presentation/customer/components/forms/customer_vehicle_form.dart';
-import 'package:flashlight_pos_app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

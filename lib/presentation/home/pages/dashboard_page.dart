@@ -65,11 +65,11 @@ class DashboardPage extends StatelessWidget {
             loading: () => const Center(child: CircularProgressIndicator()),
           );
         },
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'Dashboard page',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
