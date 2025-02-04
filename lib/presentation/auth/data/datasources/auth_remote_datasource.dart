@@ -1,37 +1,38 @@
+import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flashlight_pos_app/core/constant/api/api_auth_constant.dart';
-import 'package:flashlight_pos_app/core/services/dio_exception.dart';
-import 'package:flashlight_pos_app/core/services/dio_service.dart';
+import 'package:flashlight_pos_app/core/utils/services/dio_exception.dart';
+import 'package:flashlight_pos_app/core/utils/services/dio_service.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
-import 'package:flashlight_pos_app/presentation/auth/data/models/response/auth_response_model.dart';
+import 'package:flashlight_pos_app/presentation/auth/data/models/response/auth_model.dart';
 
 class AuthRemoteDatasouce {
   static final Dio dio = DioService.dioCall();
 
-  Future<Either<String, AuthResponseModel>> login({
+  Future<Either<String, AuthModel>> login({
     required String email,
     required String password,
   }) async {
     try {
-      var data = {
+      var formData = {
         'email': email,
         'password': password,
       };
 
       var response = await dio.post(
         ApiAuthConstant.login(),
-        data: data,
+        data: formData,
       );
 
       if (response.statusCode == 200) {
-        return right(AuthResponseModel.fromJson(response.data));
+        return right(authModelFromJson(jsonEncode(response.data['data'])));
       } else {
-        return left(response.data);
+        return left(response.data['data']);
       }
     } on DioException catch (e) {
-      var errorResponse = e.response?.data;
+      var errorResponse = e.response?.data['data'];
       String? errorMessage = parseErrorMessage(errorResponse);
 
       return left(errorMessage ?? 'Unknown error occurred');
@@ -48,7 +49,7 @@ class AuthRemoteDatasouce {
         ApiAuthConstant.logout(),
         options: Options(
           headers: {
-            'Authorization': 'Bearer ${authData.data?.token ?? ''}',
+            'Authorization': 'Bearer ${authData.token}',
           },
         ),
       );

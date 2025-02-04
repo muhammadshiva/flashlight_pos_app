@@ -1,10 +1,12 @@
-import 'package:flashlight_pos_app/presentation/auth/data/models/response/auth_response_model.dart';
+import 'dart:convert';
+
+import 'package:flashlight_pos_app/presentation/auth/data/models/response/auth_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthLocalDatasource {
-  Future<void> saveAuthData(AuthResponseModel authResponseModel) async {
+  Future<void> saveAuthData(AuthModel authModel) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('auth_data', authResponseModel.toRawJson());
+    await prefs.setString('auth_data', jsonEncode(authModel));
   }
 
   Future<void> removeAuthData() async {
@@ -12,11 +14,11 @@ class AuthLocalDatasource {
     await prefs.remove('auth_data');
   }
 
-  Future<AuthResponseModel> getAuthData() async {
+  Future<AuthModel> getAuthData() async {
     final prefs = await SharedPreferences.getInstance();
     final authData = prefs.getString('auth_data');
 
-    return AuthResponseModel.fromRawJson(authData!);
+    return AuthModel.fromJson(jsonDecode(authData!));
   }
 
   Future<bool> isAuth() async {

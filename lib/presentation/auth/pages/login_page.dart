@@ -51,7 +51,6 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: AppColors.primary,
       body: Form(
         key: formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 200.w, vertical: 16.w),
           children: [
@@ -93,6 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                 color: AppColors.white,
               ),
               validator: FormValidator.validateEmail,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
             ),
             20.verticalSpace,
             Text(
@@ -151,6 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: AppColors.white,
                 ),
                 validator: FormValidator.validatePassword,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
             ),
             40.verticalSpace,
@@ -158,8 +159,8 @@ class _LoginPageState extends State<LoginPage> {
               listener: (context, state) {
                 state.maybeWhen(
                   orElse: () {},
-                  success: (authResponseModel) async {
-                    AuthLocalDatasource().saveAuthData(authResponseModel);
+                  success: (auth) async {
+                    AuthLocalDatasource().saveAuthData(auth);
 
                     Navigator.push(
                       context,

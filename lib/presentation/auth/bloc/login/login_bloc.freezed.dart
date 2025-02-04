@@ -327,7 +327,7 @@ mixin _$LoginState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AuthResponseModel authResponseModel) success,
+    required TResult Function(AuthModel authResponseModel) success,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -335,7 +335,7 @@ mixin _$LoginState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AuthResponseModel authResponseModel)? success,
+    TResult? Function(AuthModel authResponseModel)? success,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -343,7 +343,7 @@ mixin _$LoginState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AuthResponseModel authResponseModel)? success,
+    TResult Function(AuthModel authResponseModel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -433,7 +433,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AuthResponseModel authResponseModel) success,
+    required TResult Function(AuthModel authResponseModel) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -444,7 +444,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AuthResponseModel authResponseModel)? success,
+    TResult? Function(AuthModel authResponseModel)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -455,7 +455,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AuthResponseModel authResponseModel)? success,
+    TResult Function(AuthModel authResponseModel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -547,7 +547,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AuthResponseModel authResponseModel) success,
+    required TResult Function(AuthModel authResponseModel) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -558,7 +558,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AuthResponseModel authResponseModel)? success,
+    TResult? Function(AuthModel authResponseModel)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -569,7 +569,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AuthResponseModel authResponseModel)? success,
+    TResult Function(AuthModel authResponseModel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -627,7 +627,9 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AuthResponseModel authResponseModel});
+  $Res call({AuthModel authResponseModel});
+
+  $AuthModelCopyWith<$Res> get authResponseModel;
 }
 
 /// @nodoc
@@ -647,8 +649,16 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == authResponseModel
           ? _value.authResponseModel
           : authResponseModel // ignore: cast_nullable_to_non_nullable
-              as AuthResponseModel,
+              as AuthModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AuthModelCopyWith<$Res> get authResponseModel {
+    return $AuthModelCopyWith<$Res>(_value.authResponseModel, (value) {
+      return _then(_value.copyWith(authResponseModel: value));
+    });
   }
 }
 
@@ -658,7 +668,7 @@ class _$SuccessImpl implements _Success {
   const _$SuccessImpl(this.authResponseModel);
 
   @override
-  final AuthResponseModel authResponseModel;
+  final AuthModel authResponseModel;
 
   @override
   String toString() {
@@ -688,7 +698,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AuthResponseModel authResponseModel) success,
+    required TResult Function(AuthModel authResponseModel) success,
     required TResult Function(String message) error,
   }) {
     return success(authResponseModel);
@@ -699,7 +709,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AuthResponseModel authResponseModel)? success,
+    TResult? Function(AuthModel authResponseModel)? success,
     TResult? Function(String message)? error,
   }) {
     return success?.call(authResponseModel);
@@ -710,7 +720,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AuthResponseModel authResponseModel)? success,
+    TResult Function(AuthModel authResponseModel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -759,10 +769,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements LoginState {
-  const factory _Success(final AuthResponseModel authResponseModel) =
-      _$SuccessImpl;
+  const factory _Success(final AuthModel authResponseModel) = _$SuccessImpl;
 
-  AuthResponseModel get authResponseModel;
+  AuthModel get authResponseModel;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -834,7 +843,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AuthResponseModel authResponseModel) success,
+    required TResult Function(AuthModel authResponseModel) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -845,7 +854,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AuthResponseModel authResponseModel)? success,
+    TResult? Function(AuthModel authResponseModel)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -856,7 +865,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AuthResponseModel authResponseModel)? success,
+    TResult Function(AuthModel authResponseModel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
