@@ -3,7 +3,7 @@ import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
 import 'package:flashlight_pos_app/presentation/customer/bloc/customer_bloc.dart';
-import 'package:flashlight_pos_app/presentation/customer/pages/customer_type_page.dart';
+import 'package:flashlight_pos_app/presentation/customer/views/pages/customer_type_page.dart';
 import 'package:flashlight_pos_app/presentation/home/bloc/logout_bloc.dart';
 import 'package:flashlight_pos_app/presentation/splash/pages/splash_page.dart';
 import 'package:flashlight_pos_app/routes.dart';

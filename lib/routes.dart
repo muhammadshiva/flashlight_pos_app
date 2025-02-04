@@ -1,7 +1,7 @@
 import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
-import 'package:flashlight_pos_app/presentation/customer/pages/customer_form_page.dart';
-import 'package:flashlight_pos_app/presentation/customer/pages/customer_type_page.dart';
-import 'package:flashlight_pos_app/presentation/home/pages/dashboard_page.dart';
+import 'package:flashlight_pos_app/presentation/customer/views/pages/customer_form_page.dart';
+import 'package:flashlight_pos_app/presentation/customer/views/pages/customer_type_page.dart';
+import 'package:flashlight_pos_app/presentation/home/views/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
 import 'core/constant/routes/route_constants.dart';

@@ -6,7 +6,7 @@ import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flashlight_pos_app/core/utils/functions/form_validator.dart';
 import 'package:flashlight_pos_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
-import 'package:flashlight_pos_app/presentation/customer/pages/customer_type_page.dart';
+import 'package:flashlight_pos_app/presentation/customer/views/pages/customer_type_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -4,7 +4,7 @@ import 'package:flashlight_pos_app/core/constant/routes/route_constants.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flashlight_pos_app/presentation/customer/models/customer_type_model.dart';
-import 'package:flashlight_pos_app/presentation/customer/widgets/customer_type_card.dart';
+import 'package:flashlight_pos_app/presentation/customer/views/widgets/customer_type_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
