@@ -130,7 +130,6 @@ class _CustomerFormPageState extends State<CustomerFormPage> {
                     ),
                     Form(
                       key: formKey,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       child: activeStep == 0
                           ? CustomerDataForm(
                               nameNode: nameNode,

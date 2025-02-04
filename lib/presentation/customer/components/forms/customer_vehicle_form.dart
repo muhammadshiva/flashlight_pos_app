@@ -157,6 +157,7 @@ class CustomerVehicleForm extends StatelessWidget {
             hintText: 'Input license plate. Ex: N 1234 ZZZ',
           ),
           validator: FormValidator.validateLicensePlate,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
         ),
       ],
     );

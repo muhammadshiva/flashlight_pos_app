@@ -72,9 +72,6 @@ class _CustomerTypeSectionState extends State<CustomerTypeSection> {
               Navigator.pushNamed(
                 context,
                 RouteConstants.customerForm,
-                // arguments: CustomerTypeArgument(
-                //   customerType: selectedTitle,
-                // ),
               );
             },
             label: 'Start Order',

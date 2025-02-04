@@ -39,6 +39,7 @@ class CustomerDataForm extends StatelessWidget {
             hintText: 'Input Name',
           ),
           validator: FormValidator.validateName,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
         ),
         16.verticalSpace,
         Text(
@@ -57,6 +58,7 @@ class CustomerDataForm extends StatelessWidget {
             hintText: 'Input Phone Number',
           ),
           validator: FormValidator.validatePhoneNumber,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
         ),
       ],
     );
