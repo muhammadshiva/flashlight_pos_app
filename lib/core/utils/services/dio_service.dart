@@ -2,11 +2,18 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flashlight_pos_app/core/constant/api/api_base_url.dart';
+import 'package:logger/logger.dart';
 
 class DioService {
   DioService._();
 
   static final DioService dioService = DioService._();
+
+  static final Logger _logger = Logger(
+    printer: PrettyPrinter(
+      methodCount: 0,
+    ),
+  );
 
   factory DioService() {
     return dioService;
@@ -41,22 +48,43 @@ class DioService {
   static Interceptor _authInterceptor() {
     return QueuedInterceptorsWrapper(
       onRequest: (reqOptions, handler) {
-        log('${reqOptions.uri}', name: 'REQUEST URL');
-        log('${reqOptions.headers}', name: 'HEADER');
-        log('${reqOptions.data}', name: 'DATA');
+        DioService._logger.w('REQUEST URL ${reqOptions.uri}');
+        DioService._logger.w('HEADERS ${reqOptions.headers}');
+        DioService._logger.w('DATA ${reqOptions.data}');
 
         return handler.next(reqOptions);
       },
       onError: (error, handler) async {
-        log(error.message ?? 'ERROR MESSAGE', name: 'ERROR MESSAGE');
-        log('${error.response}', name: 'RESPONSE');
-        log('${error.requestOptions.uri}', name: 'ERROR FROM URL');
+        DioService._logger.w('ERROR MESSAGE ${error.message}');
+        DioService._logger.w('RESPONSE ${error.response}');
+        DioService._logger.w('ERROR FROM URL ${error.requestOptions.uri}');
 
-        return handler.next(error); //return non 401 error
+        if (error.type == DioExceptionType.connectionTimeout) {
+          return handler.next(
+            DioException(
+              requestOptions: error.requestOptions,
+              error: "Server sedang Bermasalah",
+              message: "Silakan coba lagi nanti",
+            ),
+          );
+        }
+
+        if (error.type == DioExceptionType.connectionError) {
+          return handler.next(
+            DioException(
+              requestOptions: error.requestOptions,
+              error: "Tidak ada internet",
+              message: "Tidak ada internet",
+            ),
+          );
+        }
+
+        return handler.next(error);
       },
       onResponse: (response, handler) async {
         log('${response.requestOptions.uri}', name: 'RESPONSE FROM URL');
         log('${response.data}', name: 'RESPONSE');
+        DioService._logger.i("${response.requestOptions.uri}");
 
         return handler.resolve(response);
       },
