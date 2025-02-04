@@ -5,6 +5,7 @@ import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
 import 'package:flashlight_pos_app/presentation/home/bloc/logout_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -65,14 +66,12 @@ class DashboardPage extends StatelessWidget {
             loading: () => const Center(child: CircularProgressIndicator()),
           );
         },
-        child: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Padding(
+          padding: EdgeInsets.all(16.w),
+          child: Row(
             children: [
-              Text(
-                'Dashboard page',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              Expanded(flex: 2, child: Text('Left Page')),
+              Expanded(flex: 1, child: Text('Right Side')),
             ],
           ),
         ),
