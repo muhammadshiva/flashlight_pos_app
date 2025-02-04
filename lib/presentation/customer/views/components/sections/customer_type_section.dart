@@ -69,9 +69,14 @@ class _CustomerTypeSectionState extends State<CustomerTypeSection> {
 
           Button.filled(
             onPressed: () {
+              //TODO
+              // Navigator.pushNamed(
+              //   context,
+              //   RouteConstants.customerForm,
+              // );
               Navigator.pushNamed(
                 context,
-                RouteConstants.customerForm,
+                RouteConstants.dashboard,
               );
             },
             label: 'Start Order',

@@ -3,6 +3,7 @@ import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
 import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
 import 'package:flashlight_pos_app/presentation/home/bloc/logout_bloc.dart';
+import 'package:flashlight_pos_app/presentation/home/views/components/dashboard_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -70,7 +71,7 @@ class DashboardPage extends StatelessWidget {
           padding: EdgeInsets.all(16.w),
           child: Row(
             children: [
-              Expanded(flex: 2, child: Text('Left Page')),
+              Expanded(flex: 2, child: const DashboardMenu()),
               Expanded(flex: 1, child: Text('Right Side')),
             ],
           ),
