@@ -22,6 +22,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/cash.svg
   SvgGenImage get cash => const SvgGenImage('assets/icons/cash.svg');
 
+  /// File path: assets/icons/close.svg
+  SvgGenImage get close => const SvgGenImage('assets/icons/close.svg');
+
   /// File path: assets/icons/dashboard.svg
   SvgGenImage get dashboard => const SvgGenImage('assets/icons/dashboard.svg');
 
@@ -68,6 +71,7 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
         allCategories,
         cash,
+        close,
         dashboard,
         debit,
         delete,
@@ -112,6 +116,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/f8.jpeg
   AssetGenImage get f8 => const AssetGenImage('assets/images/f8.jpeg');
 
+  /// File path: assets/images/ic_flashlight.png
+  AssetGenImage get icFlashlight =>
+      const AssetGenImage('assets/images/ic_flashlight.png');
+
   /// File path: assets/images/ic_fnb.png
   AssetGenImage get icFnb => const AssetGenImage('assets/images/ic_fnb.png');
 
@@ -138,6 +146,17 @@ class $AssetsImagesGen {
   /// File path: assets/images/ic_motobike_selected.png
   AssetGenImage get icMotobikeSelected =>
       const AssetGenImage('assets/images/ic_motobike_selected.png');
+
+  /// File path: assets/images/ic_other.png
+  AssetGenImage get icOther =>
+      const AssetGenImage('assets/images/ic_other.png');
+
+  /// File path: assets/images/ic_other_selected.png
+  AssetGenImage get icOtherSelected =>
+      const AssetGenImage('assets/images/ic_other_selected.png');
+
+  /// File path: assets/images/ic_qris.png
+  AssetGenImage get icQris => const AssetGenImage('assets/images/ic_qris.png');
 
   /// File path: assets/images/ic_shoes.png
   AssetGenImage get icShoes =>
@@ -191,6 +210,7 @@ class $AssetsImagesGen {
         f6,
         f7,
         f8,
+        icFlashlight,
         icFnb,
         icFnbSelected,
         icHelmet,
@@ -198,6 +218,9 @@ class $AssetsImagesGen {
         icInstagram,
         icMotobike,
         icMotobikeSelected,
+        icOther,
+        icOtherSelected,
+        icQris,
         icShoes,
         icShoesSelected,
         icTiktok,
@@ -212,11 +235,25 @@ class $AssetsImagesGen {
       ];
 }
 
+class $AssetsLottiesGen {
+  const $AssetsLottiesGen();
+
+  /// File path: assets/lotties/arrow_right.json
+  String get arrowRight => 'assets/lotties/arrow_right.json';
+
+  /// File path: assets/lotties/arrow_up_pay.json
+  String get arrowUpPay => 'assets/lotties/arrow_up_pay.json';
+
+  /// List of all assets
+  List<String> get values => [arrowRight, arrowUpPay];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottiesGen lotties = $AssetsLottiesGen();
 }
 
 class AssetGenImage {

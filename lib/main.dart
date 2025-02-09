@@ -45,11 +45,9 @@ class MainApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Flashlight Point of Sales App',
           theme: ThemeData(
+            useMaterial3: false,
+            fontFamily: 'Poppins',
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
-            useMaterial3: true,
-            textTheme: GoogleFonts.quicksandTextTheme(
-              Theme.of(context).textTheme,
-            ),
             appBarTheme: AppBarTheme(
               color: AppColors.white,
               elevation: 0,

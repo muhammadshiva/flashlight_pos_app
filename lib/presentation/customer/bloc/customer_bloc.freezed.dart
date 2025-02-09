@@ -85,6 +85,9 @@ class _$CustomerEventCopyWithImpl<$Res, $Val extends CustomerEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -101,6 +104,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -219,6 +225,8 @@ class __$$CustomerDataChangedImplCopyWithImpl<$Res>
       $Res Function(_$CustomerDataChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -266,7 +274,9 @@ class _$CustomerDataChangedImpl implements _CustomerDataChanged {
   @override
   int get hashCode => Object.hash(runtimeType, name, phoneNumber);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CustomerDataChangedImplCopyWith<_$CustomerDataChangedImpl> get copyWith =>
@@ -355,7 +365,10 @@ abstract class _CustomerDataChanged implements CustomerEvent {
 
   String get name;
   String get phoneNumber;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomerDataChangedImplCopyWith<_$CustomerDataChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -378,6 +391,8 @@ class __$$VehicleDataChangedImplCopyWithImpl<$Res>
       $Res Function(_$VehicleDataChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -444,7 +459,9 @@ class _$VehicleDataChangedImpl implements _VehicleDataChanged {
   int get hashCode =>
       Object.hash(runtimeType, engineCapacity, brand, model, licencePlate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VehicleDataChangedImplCopyWith<_$VehicleDataChangedImpl> get copyWith =>
@@ -538,7 +555,10 @@ abstract class _VehicleDataChanged implements CustomerEvent {
   String get brand;
   String get model;
   String get licencePlate;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CustomerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VehicleDataChangedImplCopyWith<_$VehicleDataChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -552,7 +572,9 @@ mixin _$CustomerState {
   String get model => throw _privateConstructorUsedError;
   String get licensePlate => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CustomerStateCopyWith<CustomerState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -582,6 +604,8 @@ class _$CustomerStateCopyWithImpl<$Res, $Val extends CustomerState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CustomerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -646,6 +670,8 @@ class __$$CustomerStateImplCopyWithImpl<$Res>
       _$CustomerStateImpl _value, $Res Function(_$CustomerStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CustomerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -733,7 +759,9 @@ class _$CustomerStateImpl implements _CustomerState {
   int get hashCode => Object.hash(
       runtimeType, name, phone, engineCapacity, brand, model, licensePlate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CustomerStateImplCopyWith<_$CustomerStateImpl> get copyWith =>
@@ -761,8 +789,11 @@ abstract class _CustomerState implements CustomerState {
   String get model;
   @override
   String get licensePlate;
+
+  /// Create a copy of CustomerState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomerStateImplCopyWith<_$CustomerStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
