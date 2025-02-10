@@ -1,7 +1,9 @@
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/constant/styles/app_decoration.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
+import 'package:flashlight_pos_app/presentation/home/bloc/product/product_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -122,20 +124,35 @@ class DashboardMenu extends StatelessWidget {
         15.verticalSpace,
         Expanded(
           child: SingleChildScrollView(
-            child: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 20.w,
-              runSpacing: 20.w,
-              children: List.generate(
-                12,
-                (index) {
-                  return productCard(
-                    isSelected: index == 0 ? true : false,
-                    title: 'Clean Motobike',
-                    value: 'Rp. ${index * 100000}',
-                  );
-                },
-              ),
+            child: BlocBuilder<ProductBloc, ProductState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () {
+                    return Container();
+                  },
+                  loading: () {
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                  loaded: (products) {
+                    return Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 20.w,
+                      runSpacing: 20.w,
+                      children: List.generate(
+                        products.length,
+                        (index) {
+                          var product = products[index];
+                          return productCard(
+                            isSelected: index == 0 ? true : false,
+                            title: product.name ?? '',
+                            value: 'Rp. ${product.price}',
+                          );
+                        },
+                      ),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ),

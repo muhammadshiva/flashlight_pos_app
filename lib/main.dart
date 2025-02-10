@@ -1,10 +1,11 @@
+import 'package:flashlight_pos_app/core/utils/services/service_locator.dart';
 import 'package:flashlight_pos_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
 import 'package:flashlight_pos_app/presentation/customer/bloc/customer_bloc.dart';
 import 'package:flashlight_pos_app/presentation/customer/views/pages/customer_type_page.dart';
-import 'package:flashlight_pos_app/presentation/home/bloc/logout_bloc.dart';
+import 'package:flashlight_pos_app/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:flashlight_pos_app/presentation/splash/pages/splash_page.dart';
 import 'package:flashlight_pos_app/routes.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'core/constant/styles/colors.dart';
 
-void main() {
+void main() async {
+  setupLocator();
   runApp(const MainApp());
 }
 
@@ -35,12 +37,18 @@ class MainApp extends StatelessWidget {
       builder: (context, child) => MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => LoginBloc(AuthRemoteDatasouce()),
+            create: (context) => LoginBloc(
+              AuthRemoteDatasouce(),
+            ),
           ),
           BlocProvider(
-            create: (context) => LogoutBloc(AuthRemoteDatasouce()),
+            create: (context) => LogoutBloc(
+              AuthRemoteDatasouce(),
+            ),
           ),
-          BlocProvider(create: (context) => CustomerBloc()),
+          BlocProvider(
+            create: (context) => CustomerBloc(),
+          ),
         ],
         child: MaterialApp(
           title: 'Flashlight Point of Sales App',

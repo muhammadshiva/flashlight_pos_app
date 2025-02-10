@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flashlight_pos_app/core/constant/api/api_base_url.dart';
+import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
 import 'package:logger/logger.dart';
 
 class DioService {
@@ -69,10 +70,17 @@ class DioService {
 
   static Interceptor _authInterceptor() {
     return QueuedInterceptorsWrapper(
-      onRequest: (reqOptions, handler) {
+      onRequest: (reqOptions, handler) async {
         DioService._logger.w('REQUEST URL ${reqOptions.uri}');
         DioService._logger.w('HEADERS ${reqOptions.headers}');
         DioService._logger.w('DATA ${reqOptions.data}');
+
+        if (reqOptions.headers['Authorization'] == null) {
+          final token = await AuthLocalDatasource().getAuthData();
+
+          reqOptions.headers['Authorization'] = 'Bearer $token';
+          DioService._logger.i('Authorization added to the request header');
+        }
 
         return handler.next(reqOptions);
       },
