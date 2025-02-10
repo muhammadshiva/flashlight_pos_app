@@ -45,6 +45,28 @@ class DioService {
     return dio;
   }
 
+  static String apiErrorHandler(DioException e) {
+    DioService._logger.e('DioException: ${e.message}');
+
+    switch (e.type) {
+      case DioExceptionType.connectionTimeout:
+        return "Server error. Please try again later.";
+      case DioExceptionType.connectionError:
+        return "No internet connection.";
+      case DioExceptionType.receiveTimeout:
+        return "Response timeout.";
+      case DioExceptionType.sendTimeout:
+        return "Request timeout.";
+      case DioExceptionType.badResponse:
+        var errorMessage = e.response?.data['message'] ?? "Server error.";
+        return errorMessage;
+      case DioExceptionType.cancel:
+        return "Request cancelled.";
+      default:
+        return "An error occurred. Please try again.";
+    }
+  }
+
   static Interceptor _authInterceptor() {
     return QueuedInterceptorsWrapper(
       onRequest: (reqOptions, handler) {

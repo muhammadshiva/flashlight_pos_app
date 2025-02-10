@@ -3,5 +3,5 @@ class ApiBaseUrl {
 
   // static const String production = 'https://zgaphy.my.id/api/';
   static const String production =
-      'https://d342-125-166-13-81.ngrok-free.app/api/';
+      'https://5f44-180-248-19-145.ngrok-free.app/api/';
 }
