@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/components/buttons.dart';
 import 'package:flashlight_pos_app/core/constant/styles/app_decoration.dart';
@@ -170,6 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   },
                   error: (message) {
+                    log('Error Here : $message');
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(message),
