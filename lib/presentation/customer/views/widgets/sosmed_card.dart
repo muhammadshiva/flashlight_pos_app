@@ -1,7 +1,7 @@
-import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SosmedCard extends StatelessWidget {
@@ -19,7 +19,7 @@ class SosmedCard extends StatelessWidget {
     return Row(
       children: [
         Image.asset(imagePath, width: 15),
-        const SpaceWidth(20.0),
+        20.horizontalSpace,
         Text(
           title,
           style: GoogleFonts.poppins().copyWith(

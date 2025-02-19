@@ -1,6 +1,7 @@
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum ButtonStyle { filled, outlined }
 
@@ -14,7 +15,7 @@ class Button extends StatelessWidget {
     this.textColor = Colors.white,
     this.width = double.infinity,
     this.height = 50.0,
-    this.borderRadius = 16.0,
+    this.borderRadius = 6.0,
     this.icon,
     this.disabled = false,
     this.fontSize = 16.0,
@@ -28,10 +29,10 @@ class Button extends StatelessWidget {
     required this.label,
     this.style = ButtonStyle.outlined,
     this.color = AppColors.white,
-    this.textColor = AppColors.primary,
+    this.textColor = AppColors.accentOrange,
     this.width = double.infinity,
     this.height = 50.0,
-    this.borderRadius = 16.0,
+    this.borderRadius,
     this.icon,
     this.disabled = false,
     this.fontSize = 16.0,
@@ -47,7 +48,7 @@ class Button extends StatelessWidget {
   final Color textColor;
   final double width;
   final double height;
-  final double borderRadius;
+  final double? borderRadius;
   final Widget? icon;
   final bool disabled;
   final double fontSize;
@@ -64,7 +65,7 @@ class Button extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: color,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(borderRadius),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 6.r),
                 ),
               ),
               child: Row(
@@ -90,7 +91,7 @@ class Button extends StatelessWidget {
                 backgroundColor: color,
                 side: BorderSide(color: borderColor ?? Colors.grey),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(borderRadius),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 6.r),
                 ),
               ),
               child: Row(

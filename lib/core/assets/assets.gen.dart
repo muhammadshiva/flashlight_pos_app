@@ -244,8 +244,14 @@ class $AssetsLottiesGen {
   /// File path: assets/lotties/arrow_up_pay.json
   String get arrowUpPay => 'assets/lotties/arrow_up_pay.json';
 
+  /// File path: assets/lotties/payment_success.json
+  String get paymentSuccess => 'assets/lotties/payment_success.json';
+
+  /// File path: assets/lotties/print.json
+  String get print => 'assets/lotties/print.json';
+
   /// List of all assets
-  List<String> get values => [arrowRight, arrowUpPay];
+  List<String> get values => [arrowRight, arrowUpPay, paymentSuccess, print];
 }
 
 class Assets {

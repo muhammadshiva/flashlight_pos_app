@@ -1,5 +1,4 @@
 import 'package:flashlight_pos_app/core/components/buttons.dart';
-import 'package:flashlight_pos_app/core/components/spaces.dart';
 import 'package:flashlight_pos_app/core/constant/routes/route_constants.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/core/constant/styles/fonts.dart';
@@ -59,7 +58,7 @@ class _CustomerTypeSectionState extends State<CustomerTypeSection> {
                   );
                 })
                 .toList()
-                .expand((widget) => [widget, const SpaceWidth(20)])
+                .expand((widget) => [widget, 20.horizontalSpace])
                 .toList()
               ..removeLast(),
           ),
