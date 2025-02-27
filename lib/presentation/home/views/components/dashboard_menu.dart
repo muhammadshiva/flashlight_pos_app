@@ -1,4 +1,5 @@
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
+import 'package:flashlight_pos_app/core/constant/routes/route_constants.dart';
 import 'package:flashlight_pos_app/core/constant/styles/app_decoration.dart';
 import 'package:flashlight_pos_app/core/constant/styles/colors.dart';
 import 'package:flashlight_pos_app/presentation/home/bloc/product/product_bloc.dart';
@@ -23,7 +24,15 @@ class DashboardMenu extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Image.asset(Assets.images.icFlashlight.path, height: 50.w),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteConstants.setting);
+                      },
+                      child: Image.asset(
+                        Assets.images.icFlashlight.path,
+                        height: 50.w,
+                      ),
+                    ),
                     10.horizontalSpace,
                     RichText(
                       text: TextSpan(

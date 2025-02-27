@@ -4,4 +4,5 @@ class RouteConstants {
   static const String customerType = '/customer-type';
   static const String customerForm = '/customer-form';
   static const String dashboard = '/dashboard';
+  static const String setting = '/setting';
 }

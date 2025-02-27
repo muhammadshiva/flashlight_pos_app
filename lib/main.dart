@@ -6,6 +6,7 @@ import 'package:flashlight_pos_app/presentation/auth/pages/login_page.dart';
 import 'package:flashlight_pos_app/presentation/customer/bloc/customer_bloc.dart';
 import 'package:flashlight_pos_app/presentation/customer/views/pages/customer_type_page.dart';
 import 'package:flashlight_pos_app/presentation/home/bloc/logout/logout_bloc.dart';
+import 'package:flashlight_pos_app/presentation/setting/bloc/setting_bloc.dart';
 import 'package:flashlight_pos_app/presentation/splash/pages/splash_page.dart';
 import 'package:flashlight_pos_app/routes.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,12 @@ class MainApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => CustomerBloc(),
+          ),
+          BlocProvider(
+            create: (context) => SettingBloc()
+              ..add(
+                const SettingEvent.started(),
+              ),
           ),
         ],
         child: MaterialApp(

@@ -51,7 +51,7 @@ class ProductCard extends StatelessWidget {
                     topRight: Radius.circular(6.r),
                   ),
                   child: CachedNetworkImage(
-                    imageUrl: '${ApiBaseUrl.imageUrl}${product.image}',
+                    imageUrl: '${ApiBaseUrl.image}${product.image}',
                     height: 130.w,
                     width: 195.w,
                   ),
