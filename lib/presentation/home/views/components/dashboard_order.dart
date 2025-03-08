@@ -37,7 +37,7 @@ class _DashboardOrderState extends State<DashboardOrder> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SizedBox(
-        height: MediaQuery.sizeOf(context).height * 0.9,
+        height: MediaQuery.sizeOf(context).height * 0.87,
         child: BlocBuilder<ProductBloc, ProductState>(
           builder: (context, state) {
             return Column(

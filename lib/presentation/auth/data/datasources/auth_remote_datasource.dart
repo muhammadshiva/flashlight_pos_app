@@ -7,8 +7,6 @@ import 'package:flashlight_pos_app/core/utils/services/dio_service.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/models/response/auth_model.dart';
 
 class AuthRemoteDatasouce {
-  static final Dio dio = DioService.dioCall();
-
   Future<Either<String, AuthModel>> login({
     required String email,
     required String password,
@@ -19,7 +17,7 @@ class AuthRemoteDatasouce {
         'password': password,
       };
 
-      var response = await dio.post(
+      var response = await DioService.dio.post(
         Endpoint.login,
         data: formData,
       );
@@ -32,7 +30,7 @@ class AuthRemoteDatasouce {
 
   Future<Either<String, Response>> logout() async {
     try {
-      var response = await dio.post(
+      var response = await DioService.dio.post(
         Endpoint.logout,
       );
 

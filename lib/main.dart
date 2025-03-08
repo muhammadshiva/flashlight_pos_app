@@ -1,3 +1,4 @@
+import 'package:flashlight_pos_app/core/utils/services/dio_service.dart';
 import 'package:flashlight_pos_app/core/utils/services/service_locator.dart';
 import 'package:flashlight_pos_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flashlight_pos_app/presentation/auth/data/datasources/auth_local_datasource.dart';
@@ -18,6 +19,7 @@ import 'core/constant/styles/colors.dart';
 
 void main() async {
   setupLocator();
+  await DioService().init();
   runApp(const MainApp());
 }
 

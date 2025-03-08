@@ -7,11 +7,9 @@ import 'package:flashlight_pos_app/core/utils/services/dio_service.dart';
 import 'package:flashlight_pos_app/presentation/home/data/models/product/response/product_model.dart';
 
 class ProductRemoteDatasource {
-  static final Dio dio = DioService.dioCall();
-
   Future<Either<String, ProductModel>> getProduct() async {
     try {
-      var response = await dio.get(
+      var response = await DioService.dio.get(
         Endpoint.getProducts,
       );
 
