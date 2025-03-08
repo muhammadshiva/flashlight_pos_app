@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flashlight_pos_app/core/assets/assets.gen.dart';
 import 'package:flashlight_pos_app/core/components/buttons.dart';
 import 'package:flashlight_pos_app/core/constant/styles/app_decoration.dart';
@@ -157,57 +155,46 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             40.verticalSpace,
-            BlocListener<LoginBloc, LoginState>(
+            BlocConsumer<LoginBloc, LoginState>(
               listener: (context, state) {
-                state.maybeWhen(
-                  orElse: () {},
-                  success: (auth) async {
-                    AuthLocalDatasource().saveAuthData(auth);
+                if (state.authResponseModel != null) {
+                  AuthLocalDatasource().saveAuthData(state.authResponseModel!);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CustomerTypePage(),
+                    ),
+                  );
+                }
 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CustomerTypePage(),
-                      ),
-                    );
+                if (state.errorMessage?.isNotEmpty ?? false) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.errorMessage!),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
+              builder: (context, state) {
+                if (state.isLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                return Button.filled(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      context.read<LoginBloc>().add(
+                            LoginEvent.login(
+                              email: emailCtrl.text,
+                              password: passwordCtrl.text,
+                            ),
+                          );
+                    }
                   },
-                  error: (message) {
-                    log('Error Here : $message');
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(message),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
-                  },
+                  label: 'Login',
                 );
               },
-              child: BlocBuilder<LoginBloc, LoginState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    orElse: () {
-                      return Button.filled(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            context.read<LoginBloc>().add(
-                                  LoginEvent.login(
-                                    email: emailCtrl.text,
-                                    password: passwordCtrl.text,
-                                  ),
-                                );
-                          }
-                        },
-                        label: 'Login',
-                      );
-                    },
-                    loading: () {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    },
-                  );
-                },
-              ),
             ),
           ],
         ),
