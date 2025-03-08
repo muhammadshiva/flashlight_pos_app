@@ -135,27 +135,32 @@ class DashboardMenu extends StatelessWidget {
             15.verticalSpace,
             Expanded(
               child: SingleChildScrollView(
-                child: state.isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : state.products.isEmpty
-                        ? const Center(child: Text('No products'))
-                        : Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            spacing: 20.w,
-                            runSpacing: 20.w,
-                            children: state.products.map(
-                              (product) {
-                                return ProductCard(
-                                  onTap: () => context
-                                      .read<ProductBloc>()
-                                      .add(ProductEvent.selectProduct(product)),
-                                  product: product,
-                                  isSelected:
-                                      state.selectedProducts.contains(product),
-                                );
-                              },
-                            ).toList(),
-                          ),
+                child: () {
+                  if (state.isLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (state.errorMessage?.isNotEmpty ?? false) {
+                    return Center(
+                      child: Text(state.errorMessage ?? 'Terjadi kesalahan'),
+                    );
+                  } else if (state.products.isEmpty) {
+                    return const Center(child: Text('No products'));
+                  } else {
+                    return Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 20.w,
+                      runSpacing: 20.w,
+                      children: state.products.map((product) {
+                        return ProductCard(
+                          onTap: () => context
+                              .read<ProductBloc>()
+                              .add(ProductEvent.selectProduct(product)),
+                          product: product,
+                          isSelected: state.selectedProducts.contains(product),
+                        );
+                      }).toList(),
+                    );
+                  }
+                }(),
               ),
             ),
             20.verticalSpace,
